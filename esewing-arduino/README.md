@@ -22,3 +22,4 @@ Workshop contacts: [Carolyn Moritz](mailto:cmoritz@vassar.edu "cmoritz@vassar.ed
 * Check out **Project 5** first to learn about the Arduino IDE
 * Download `Blink.ino` as a quick LED blinking test/starting code
 * Experiment with the code! Change the blink timer or visit [other Arduino tutorials](http://www.arduino.cc/en/Tutorial) for ideas.
+* [Basics of how to light up a Lilypad](https://learn.sparkfun.com/tutorials/light-up-pennant-with-e-textiles)
