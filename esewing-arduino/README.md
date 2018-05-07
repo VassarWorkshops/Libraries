@@ -11,6 +11,7 @@ Workshop contacts: [Carolyn Moritz](mailto:cmoritz@vassar.edu "cmoritz@vassar.ed
 * [LilyPad: Project 5 - Uploading an Arduino Sketch](http://kookye.com/2017/07/01/lilypad-tutorial-uploading-an-arduino-sketch/)
 * [Arduino: IDE Downloads](https://www.arduino.cc/en/Main/Software)
 * [Arduino: Getting Started w/ LilyPad Arduino](https://www.arduino.cc/en/Guide/ArduinoLilyPadUSB)
+* [Arduino: LilyPad Lighting Basics](https://learn.sparkfun.com/tutorials/light-up-pennant-with-e-textiles)
 
 **Quilting Project Tips**
 ##### E-Sewing 
