@@ -9,6 +9,7 @@ Workshop contacts: [Carolyn Moritz](mailto:cmoritz@vassar.edu "cmoritz@vassar.ed
 * [LilyPad: Project 3 - Light-Up Plush](http://kookye.com/2017/07/01/lilypad-light-up-plush/)
 * [LilyPad: Project 4 - Night-Light Pennant](http://kookye.com/2017/07/01/lilypad-night-light-pennant/)
 * [LilyPad: Project 5 - Uploading an Arduino Sketch](http://kookye.com/2017/07/01/lilypad-tutorial-uploading-an-arduino-sketch/)
+* [Arduino: IDE Downloads](https://www.arduino.cc/en/Main/Software)
 * [Arduino: Getting Started w/ LilyPad Arduino](https://www.arduino.cc/en/Guide/ArduinoLilyPadUSB)
 
 ##### Quilting Project Tips
