@@ -5,7 +5,7 @@ Workshop contacts: [Carolyn Moritz](mailto:cmoritz@vassar.edu "cmoritz@vassar.ed
 
 **Walkthrough**  
 *Refer to Example Projects below for full diagrams, tutorials, and sample templates*  
-* Practice a running stitch from battery pack to LED - *LilyPad Basics*
+* Practice a running stitch from battery pack to LED - *Basics: E-Sewing*
 * Using a template or your own design, work in switches and buttons - *Projects 2 & 3*
 * Using Arduino IDE, upload `Blink.io` to test LilyPad USB Board. How might you change the code? - *Project 5*
 * Using a template or your own design, work in the USB Board and light sensors to create dynamic light designs - *Lighting Basics & Project 4*
