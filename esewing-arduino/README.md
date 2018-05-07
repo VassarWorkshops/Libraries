@@ -13,12 +13,12 @@ Workshop contacts: [Carolyn Moritz](mailto:cmoritz@vassar.edu "cmoritz@vassar.ed
 * [Arduino: Getting Started w/ LilyPad Arduino](https://www.arduino.cc/en/Guide/ArduinoLilyPadUSB)
 
 ##### Quilting Project Tips
-** E-Sewing **  
+**E-Sewing**  
 *  Practice e-sewing LED concepts from **Projects 2-3** on felt
 * Use fabric markers to trace your path before stitching
 * Use hot glue gun to affix pieces to material before stitching    
 
-** Arduino **  
+**Arduino**  
 * Check out **Project 5** first to learn about the Arduino IDE
 * Download `Blink.ino` as a quick LED blinking test/starting code
 * Experiment with the code! Change the blink timer or visit [other Arduino tutorials](http://www.arduino.cc/en/Tutorial) for ideas.
