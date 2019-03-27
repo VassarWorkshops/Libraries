@@ -1,6 +1,6 @@
 ---
-title: "Library Usage Report"
-author: "Jacob Levernier"
+title: "Wifi Usage Report"
+``` # modified from author Jacob Levernier ```
 output:
   html_document: default
   pdf_document: default
@@ -23,7 +23,7 @@ library(pander)
 library(readr)
 ```
 
-This report is based on card swipe and wifi access data from the library. It was generated on `r lubridate::stamp("January 1, 2018")(lubridate::today())`.
+This report is based on card swipe and wifi access data. It was generated on `r lubridate::stamp("January 1, 2018")(lubridate::today())`.
 
 ```{r load datasets}
 wifi_dataset <- readr::read_csv(
@@ -133,10 +133,5 @@ month_with_highest_journal_usage <- wifi_events_by_month %>%
 ```
 
 As can be seen in the visuzalization above, the month with the higest journal access usage was `r lubridate::stamp("January of 2018", order = "B Y")(month_with_highest_journal_usage)`. `r ifelse(month_with_highest_journal_usage == month_with_highest_website_usage, "Conversely, the", "The")` month with the highest website access was `r lubridate::stamp("January of 2018", order = "B Y")(month_with_highest_website_usage)`.
-
-### Card swipe access
-
-(Let's build this out together)
-
 
 
