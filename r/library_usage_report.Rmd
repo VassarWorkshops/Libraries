@@ -1,0 +1,142 @@
+---
+title: "Library Usage Report"
+author: "Jacob Levernier"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include = FALSE}
+# Set the default code chunk options for this document:
+
+knitr::opts_chunk$set(echo = FALSE) # Don't print code itself.
+knitr::opts_chunk$set(message = FALSE) # Don't print output messages.
+knitr::opts_chunk$set(include = TRUE) # Do run code chunks.
+```
+
+```{r load_packages}
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(magrittr)
+library(pander)
+library(readr)
+```
+
+This report is based on card swipe and wifi access data from the library. It was generated on `r lubridate::stamp("January 1, 2018")(lubridate::today())`.
+
+```{r load datasets}
+wifi_dataset <- readr::read_csv(
+  file.path("data", "wifi_dataset.csv")
+)
+
+card_swipe_dataset <- readr::read_csv(
+  file.path("data", "card_swipe_dataset.csv")
+)
+```
+
+## Overview
+
+### Wifi access
+
+```{r do basic analysis of wifi dataset}
+earliest_wifi_date <- wifi_dataset %>% 
+  dplyr::pull(date) %>% 
+  min()
+
+latest_wifi_date <- wifi_dataset %>% 
+  dplyr::pull(date) %>% 
+  max()
+
+number_of_unique_wifi_users <- wifi_dataset %>% 
+  pull(card_number) %>% 
+  unique() %>% 
+  length()
+
+number_of_wifi_events <- wifi_dataset %>% 
+  nrow()
+```
+
+Between `r lubridate::stamp("January 1, 2018")(earliest_wifi_date)` and `r lubridate::stamp("January 1, 2018")(latest_wifi_date)`, `r number_of_unique_wifi_users` users performed a total of `r number_of_wifi_events` events, broken down as follows:
+
+```{r show table of wifi event breakdown}
+wifi_dataset %>% 
+  dplyr::select(event) %>% 
+  table() %>% 
+  pander::pander()
+```
+
+Web resouce usage was not static over time, as can be seen in the visualizations below:
+
+```{r show graphical breakdown of user usage}
+
+wifi_events_by_month <- wifi_dataset %>% 
+  dplyr::mutate(
+    month = lubridate::stamp("2018-01", orders = "ym")(date)
+  ) %>%
+  group_by(
+    month,
+    event
+  ) %>% 
+  dplyr::summarize(
+    number_of_events = n()
+  ) %>% 
+  ungroup()
+
+wifi_events_by_month %>% 
+  ggplot(
+    aes(
+      x = month,
+      y = number_of_events,
+      fill = event
+    )
+  ) + 
+    geom_col(
+      position = "dodge"
+    ) + 
+    xlab("Month") + 
+    ylab("Number of Events") +
+    theme(axis.text.x = element_text(angle = 90))
+
+wifi_events_by_month %>% 
+  ggplot(
+    aes(
+      x = month,
+      y = number_of_events,
+      color = event,
+      group = event
+    )
+  ) + 
+    geom_line() + 
+    xlab("Month") + 
+    ylab("Number of Events") +
+    theme(axis.text.x = element_text(angle = 90))
+
+month_with_highest_website_usage <- wifi_events_by_month %>% 
+  dplyr::filter(event == "website_access") %>% 
+  dplyr::top_n(1, number_of_events) %>% 
+  dplyr::pull(month) %>% 
+  lubridate::ymd(truncated = 1) %>% 
+  magrittr::extract(1)
+
+month_with_highest_journal_usage <- wifi_events_by_month %>% 
+  dplyr::filter(event == "journal_access") %>% 
+  dplyr::top_n(1, number_of_events) %>% 
+  dplyr::pull(month) %>% 
+  lubridate::ymd(truncated = 1) %>% 
+  magrittr::extract(1)
+
+# For information about date format codes, see
+# https://www.statmethods.net/input/dates.html
+
+
+```
+
+As can be seen in the visuzalization above, the month with the higest journal access usage was `r lubridate::stamp("January of 2018", order = "B Y")(month_with_highest_journal_usage)`. `r ifelse(month_with_highest_journal_usage == month_with_highest_website_usage, "Conversely, the", "The")` month with the highest website access was `r lubridate::stamp("January of 2018", order = "B Y")(month_with_highest_website_usage)`.
+
+### Card swipe access
+
+(Let's build this out together)
+
+
+
